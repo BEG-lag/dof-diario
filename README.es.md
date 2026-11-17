@@ -39,7 +39,7 @@ Carga inicial hecha el 17-11-2026 con `dof-diario backfill` desde el 01-01-2025 
 | Notas con título en el índice de búsqueda | **10,689** de **103** dependencias |
 | Emisor más activo | Banco de México, 1,606 notas (tipo de cambio, TIIE, circulares) |
 | Mes con más publicaciones | diciembre de 2025, 719 notas con título |
-| Tamaño | 19.9 MB de JSON en disco, 2.6 MB comprimidos en git |
+| Tamaño | 19.9 MB de JSON en disco, 2.7 MB comprimidos en git |
 
 Los distintivos de arriba leen `data/meta.json`, así que se actualizan solos conforme el robot
 agrega días.

@@ -38,7 +38,7 @@ Backfilled on 2026-11-17 by running `dof-diario backfill` from 2025-01-01 (682 r
 | Titled notes in the search index | **10,689** from **103** issuing agencies |
 | Most active issuer | Banco de México, 1,606 notes (exchange rate, TIIE, circulars) |
 | Busiest month | December 2025, 719 titled notes |
-| Size | 19.9 MB of JSON on disk, 2.6 MB packed in git |
+| Size | 19.9 MB of JSON on disk, 2.7 MB packed in git |
 
 The badges above read `data/meta.json`, so they stay current as the robot adds days.
 

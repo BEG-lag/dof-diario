@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/BEG-lag/dof-diario/main/schema/day.schema.json",
+  "title": "DOF day",
+  "description": "Table of contents of every Diario Oficial de la Federación edition published on one date, normalized from the public SIDOF API. Stored as data/YYYY/MM/YYYY-MM-DD.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "date",
+    "source",
+    "total_notes",
+    "total_avisos",
+    "editions",
+    "notes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "date": {
+      "description": "Publication date (ISO 8601).",
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "source": {
+      "description": "SIDOF endpoint the record was built from.",
+      "type": "string",
+      "pattern": "^https://sidof\\.segob\\.gob\\.mx/dof/sidof/notas/\\d{2}-\\d{2}-\\d{4}$"
+    },
+    "total_notes": {
+      "description": "Number of notes, avisos included. Equals the length of notes.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "total_avisos": {
+      "description": "How many notes are avisos judiciales y generales.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "editions": {
+      "description": "Editions published that day, in publication order.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/edition"
+      }
+    },
+    "notes": {
+      "description": "Every titled note, ordered by edition and then by its order in the edition.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/note"
+      }
+    }
+  },
+  "$defs": {
+    "editionName": {
+      "enum": ["matutina", "vespertina", "extraordinaria"]
+    },
+    "edition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["edition", "notes", "avisos", "diario_ids", "pdf_urls"],
+      "properties": {
+        "edition": {
+          "$ref": "#/$defs/editionName"
+        },
+        "notes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "avisos": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "diario_ids": {
+          "description": "SIDOF codDiario of each section of the edition.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "pdf_urls": {
+          "description": "Full edition PDF for each diario id.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^https://sidof\\.segob\\.gob\\.mx/dof/sidof/documentos/pdf/\\d+$"
+          }
+        }
+      }
+    },
+    "note": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "edition",
+        "order",
+        "section",
+        "diario_id",
+        "page",
+        "branch",
+        "branch_code",
+        "agency",
+        "title",
+        "aviso",
+        "has_doc",
+        "has_pdf",
+        "url"
+      ],
+      "properties": {
+        "id": {
+          "description": "SIDOF codNota. Unique across the whole DOF.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "edition": {
+          "$ref": "#/$defs/editionName"
+        },
+        "order": {
+          "description": "Position inside the edition, as published by SIDOF.",
+          "type": "number"
+        },
+        "section": {
+          "description": "Section of the edition (UNICA, PRIMERA, SEGUNDA, ...).",
+          "type": ["string", "null"]
+        },
+        "diario_id": {
+          "type": ["integer", "null"]
+        },
+        "page": {
+          "description": "Page of the printed edition where the note starts.",
+          "type": ["integer", "null"]
+        },
+        "branch": {
+          "description": "Branch, e.g. PODER EJECUTIVO, ORGANISMOS AUTONOMOS, AVISOS JUDICIALES Y GENERALES.",
+          "type": ["string", "null"]
+        },
+        "branch_code": {
+          "description": "SIDOF branch code, e.g. PE, PJ, OA, OD, AV.",
+          "type": ["string", "null"]
+        },
+        "agency": {
+          "description": "Issuing agency (dependencia), e.g. SECRETARIA DE ENERGIA. Null for avisos.",
+          "type": ["string", "null"]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "aviso": {
+          "description": "True for avisos judiciales y generales (their titles are reference codes).",
+          "type": "boolean"
+        },
+        "has_doc": {
+          "description": "SIDOF offers a Word file for the note.",
+          "type": "boolean"
+        },
+        "has_pdf": {
+          "type": "boolean"
+        },
+        "url": {
+          "description": "Official page of the note on dof.gob.mx.",
+          "type": "string",
+          "pattern": "^https://dof\\.gob\\.mx/nota_detalle\\.php\\?codigo=\\d+&fecha=\\d{2}/\\d{2}/\\d{4}$"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>dof-diario · el sumario del Diario Oficial, archivado cada día</title>
+  <meta name="description" content="Dataset abierto y vivo del sumario del Diario Oficial de la Federación (DOF), actualizado a diario con GitHub Actions. Busca títulos, filtra por dependencia y fecha, y ve estadísticas.">
+  <meta name="theme-color" content="#0a0c10">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="dof-diario · el sumario del DOF, archivado cada día">
+  <meta property="og:description" content="Open, living dataset of Mexico's Diario Oficial de la Federación table of contents. Search titles, filter by agency and date, see stats.">
+  <meta property="og:url" content="https://beg-lag.github.io/dof-diario/">
+  <meta property="og:image" content="https://beg-lag.github.io/dof-diario/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="data/summary.json" as="fetch" crossorigin>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="./"><i aria-hidden="true"></i><b>dof<span>-diario</span></b></a>
+      <nav class="nav" aria-label="Secciones">
+        <a href="#buscar" data-i18n="nav.search">Buscar</a>
+        <a href="#estadisticas" data-i18n="nav.stats">Estadísticas</a>
+        <a href="#datos" data-i18n="nav.data">Datos</a>
+        <a href="https://github.com/BEG-lag/dof-diario">GitHub</a>
+      </nav>
+      <button class="lang" type="button" id="lang" aria-label="Change language">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap hero">
+      <span class="kicker"><span class="pulse" aria-hidden="true"></span><span data-i18n="hero.kicker">Dataset abierto · actualizado a diario</span></span>
+      <h1 data-i18n-html="hero.title">El sumario del Diario Oficial, <em>archivado cada día.</em></h1>
+      <p class="lede" data-i18n-html="hero.lede">Cada nota publicada en el <strong>Diario Oficial de la Federación</strong> desde enero de 2025: título, dependencia, edición y liga oficial. Un robot de GitHub Actions lo consulta después de cada edición y guarda lo nuevo en este repositorio.</p>
+      <div class="tiles" aria-live="polite">
+        <div class="tile"><b id="t-notes">·</b><span data-i18n="tile.notes">notas indexadas</span></div>
+        <div class="tile"><b id="t-days">·</b><span data-i18n="tile.days">días con edición</span></div>
+        <div class="tile"><b id="t-agencies">·</b><span data-i18n="tile.agencies">dependencias</span></div>
+        <div class="tile live"><b id="t-last">·</b><span data-i18n="tile.last">última edición archivada</span></div>
+      </div>
+    </div>
+
+    <section id="buscar">
+      <div class="wrap">
+        <h2 data-i18n="search.heading">Buscar en el sumario</h2>
+        <form class="panel" id="search-form" role="search" autocomplete="off">
+          <div class="search-row">
+            <label class="sr-only" for="q" data-i18n="search.label">Palabras clave</label>
+            <input id="q" name="q" type="search" data-i18n-placeholder="search.placeholder" placeholder="hidrocarburos, &quot;gas natural&quot;, NOM | norma…" enterkeyhint="search">
+          </div>
+          <div class="filters">
+            <label class="agency"><span data-i18n="filter.agency">Dependencia</span>
+              <select id="agency" name="agency"><option value="" data-i18n="filter.all">Todas</option></select>
+            </label>
+            <label><span data-i18n="filter.edition">Edición</span>
+              <select id="edition" name="edition">
+                <option value="" data-i18n="filter.all">Todas</option>
+                <option value="0" data-i18n="ed.matutina">Matutina</option>
+                <option value="1" data-i18n="ed.vespertina">Vespertina</option>
+                <option value="2" data-i18n="ed.extraordinaria">Extraordinaria</option>
+              </select>
+            </label>
+            <label><span data-i18n="filter.from">Desde</span><input id="from" name="from" type="date"></label>
+            <label><span data-i18n="filter.to">Hasta</span><input id="to" name="to" type="date"></label>
+            <button class="btn ghost reset" type="reset" data-i18n="filter.reset">Limpiar</button>
+          </div>
+          <p class="hint" data-i18n-html="search.hint">Sin acentos ni mayúsculas: <code>energia</code> encuentra <code>Energía</code>. Las palabras son prefijos (<code>eléctric</code>), usa <code>"comillas"</code> para frases y <code>|</code> para alternativas.</p>
+        </form>
+        <div class="status"><span id="count" aria-live="polite" class="loading" data-i18n="status.loading">Cargando el índice…</span><span id="share"></span></div>
+        <ol class="results" id="results"></ol>
+        <div class="more"><button class="btn ghost" id="more" type="button" hidden data-i18n="results.more">Ver más</button></div>
+      </div>
+    </section>
+
+    <section id="estadisticas">
+      <div class="wrap">
+        <h2 data-i18n="stats.heading">Estadísticas</h2>
+        <div class="charts">
+          <div class="chart-card">
+            <h3 data-i18n="stats.month">Notas por mes</h3>
+            <p data-i18n="stats.monthNote">Notas con título, sin avisos. Haz clic en un mes para buscarlo.</p>
+            <div class="bars" id="by-month" role="img" aria-label="Notas por mes"></div>
+          </div>
+          <div class="chart-card">
+            <h3 data-i18n="stats.top">Dependencias con más publicaciones</h3>
+            <p data-i18n="stats.topNote">Sin avisos. Haz clic para filtrar la búsqueda.</p>
+            <ol class="top-list" id="top-agencies"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="datos">
+      <div class="wrap">
+        <h2 data-i18n="data.heading">Usa los datos</h2>
+        <div class="data-grid">
+          <div class="chart-card">
+            <h3 data-i18n="data.day">Un archivo por día</h3>
+            <p data-i18n="data.dayNote">JSON normalizado con cada nota, su dependencia, página y liga oficial.</p>
+            <pre>curl -s https://raw.githubusercontent.com/BEG-lag/dof-diario/main/data/2026/11/2026-11-13.json</pre>
+          </div>
+          <div class="chart-card">
+            <h3 data-i18n="data.schema">Esquema documentado</h3>
+            <p data-i18n-html="data.schemaNote">Cada archivo cumple el <a href="https://github.com/BEG-lag/dof-diario/blob/main/schema/day.schema.json">JSON Schema</a> y se valida en cada actualización.</p>
+            <pre>schema/day.schema.json
+data/YYYY/MM/YYYY-MM-DD.json
+data/meta.json</pre>
+          </div>
+          <div class="chart-card">
+            <h3 data-i18n="data.agent">Para agentes de IA</h3>
+            <p data-i18n-html="data.agentNote">El servidor <a href="https://github.com/BEG-lag/mcp-dof">mcp-dof</a> da a Claude el texto completo de cada nota.</p>
+            <pre>claude mcp add dof -- uvx --from \
+  git+https://github.com/BEG-lag/mcp-dof mcp-dof</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>
+        <p class="disclaimer" data-i18n="footer.disclaimer">No oficial: solo el DOF impreso/oficial es fuente auténtica; no constituye asesoría legal.</p>
+        <p data-i18n-html="footer.source">Datos obtenidos de la API pública de SIDOF (Secretaría de Gobernación). Proyecto independiente, sin afiliación con el DOF. <a href="https://github.com/BEG-lag/dof-diario">Código y datos en GitHub</a>.</p>
+      </div>
+      <div>
+        <p class="sig">Benjamín Esponda García</p>
+        <p><a href="https://pivotek.mx">pivotek.mx</a> · <a href="https://github.com/BEG-lag/portafolio-ia" data-i18n="footer.portfolio">portafolio</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

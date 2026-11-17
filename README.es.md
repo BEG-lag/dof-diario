@@ -171,4 +171,4 @@ Hecho por **Benjamín Esponda García**, abogado corporativo mexicano (energía,
 minería) que construye con IA. Más en [pivotek.mx](https://pivotek.mx) y en el
 [portafolio](https://github.com/BEG-lag/portafolio-ia).
 
-Código bajo la [licencia MIT](LICENSE).
+Código bajo la [licencia MIT](LICENSE). Datos en dominio público bajo CC0 ([DATA-LICENSE.md](DATA-LICENSE.md)).

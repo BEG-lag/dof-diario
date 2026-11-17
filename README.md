@@ -166,4 +166,4 @@ Built by **Benjamín Esponda García**, a Mexican corporate lawyer (energy, hydr
 mining) who builds with AI. More at [pivotek.mx](https://pivotek.mx) and in the
 [portfolio](https://github.com/BEG-lag/portafolio-ia).
 
-Code released under the [MIT License](LICENSE).
+Code released under the [MIT License](LICENSE). Data dedicated to the public domain under CC0 ([DATA-LICENSE.md](DATA-LICENSE.md)).

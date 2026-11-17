@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "date": "2026-05-09",
+  "source": "https://sidof.segob.gob.mx/dof/sidof/notas/09-05-2026",
+  "total_notes": 1,
+  "total_avisos": 0,
+  "editions": [{"edition": "vespertina", "notes": 1, "avisos": 0, "diario_ids": [327205], "pdf_urls": ["https://sidof.segob.gob.mx/dof/sidof/documentos/pdf/327205"]}],
+  "notes": [
+    {"id": 5786997, "edition": "vespertina", "order": 2, "section": "UNICA", "diario_id": 327205, "page": 2, "branch": "PODER EJECUTIVO", "branch_code": "PE", "agency": "PRESIDENCIA DE LA REPUBLICA", "title": "Decreto por el que se entrega, en restitución y resarcimiento, a favor del Pueblo Yaqui el predio denominado \"Rancho La Matanza y/o La Matanza\", con una superficie de 239-67-66.49 hectáreas (doscientas treinta y nueve hectáreas, sesenta y siete áreas, sesenta y seis punto cuarenta y nueve centiáreas), ubicado en el municipio de Cajeme del estado de Sonora.", "aviso": false, "has_doc": true, "has_pdf": true, "url": "https://dof.gob.mx/nota_detalle.php?codigo=5786997&fecha=09/05/2026"}
+  ]
+}

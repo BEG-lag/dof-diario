@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "date": "2025-12-28",
+  "source": "https://sidof.segob.gob.mx/dof/sidof/notas/28-12-2025",
+  "total_notes": 3,
+  "total_avisos": 0,
+  "editions": [{"edition": "matutina", "notes": 3, "avisos": 0, "diario_ids": [324885], "pdf_urls": ["https://sidof.segob.gob.mx/dof/sidof/documentos/pdf/324885"]}],
+  "notes": [
+    {"id": 5777217, "edition": "matutina", "order": 2, "section": "UNICA", "diario_id": 324885, "page": 2, "branch": "PODER EJECUTIVO", "branch_code": "PE", "agency": "SECRETARIA DE HACIENDA Y CREDITO PUBLICO", "title": "Resolución Miscelánea Fiscal para 2026.", "aviso": false, "has_doc": true, "has_pdf": true, "url": "https://dof.gob.mx/nota_detalle.php?codigo=5777217&fecha=28/12/2025"},
+    {"id": 5777218, "edition": "matutina", "order": 3, "section": "UNICA", "diario_id": 324885, "page": 668, "branch": "PODER EJECUTIVO", "branch_code": "PE", "agency": "SECRETARIA DE HACIENDA Y CREDITO PUBLICO", "title": "Anexo 1 de la Resolución Miscelánea Fiscal para 2026.", "aviso": false, "has_doc": true, "has_pdf": true, "url": "https://dof.gob.mx/nota_detalle.php?codigo=5777218&fecha=28/12/2025"},
+    {"id": 5777219, "edition": "matutina", "order": 4, "section": "UNICA", "diario_id": 324885, "page": 849, "branch": "PODER EJECUTIVO", "branch_code": "PE", "agency": "SECRETARIA DE HACIENDA Y CREDITO PUBLICO", "title": "Anexos 4, 5, 6, 8, 15 y 25 de la Resolución Miscelánea Fiscal para 2026.", "aviso": false, "has_doc": true, "has_pdf": true, "url": "https://dof.gob.mx/nota_detalle.php?codigo=5777219&fecha=28/12/2025"}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "date": "2025-09-14",
+  "source": "https://sidof.segob.gob.mx/dof/sidof/notas/14-09-2025",
+  "total_notes": 1,
+  "total_avisos": 0,
+  "editions": [{"edition": "vespertina", "notes": 1, "avisos": 0, "diario_ids": [323083], "pdf_urls": ["https://sidof.segob.gob.mx/dof/sidof/documentos/pdf/323083"]}],
+  "notes": [
+    {"id": 5767917, "edition": "vespertina", "order": 2, "section": "UNICA", "diario_id": 323083, "page": 2, "branch": "PODER JUDICIAL", "branch_code": "PJ", "agency": "ORGANO DE ADMINISTRACION JUDICIAL", "title": "Acuerdo General del Pleno del Órgano de Administración Judicial por el que se adscriben a las personas electas en el Proceso Electoral Extraordinario a diversos cargos del Poder Judicial de la Federación 2024-2025, asimismo, se comisionan, reubican y readscriben, a personas funcionarias de los Órganos Jurisdiccionales, se designan y, en su caso, prorrogan a personas secretarias en funciones de Personas Juzgadoras.", "aviso": false, "has_doc": true, "has_pdf": true, "url": "https://dof.gob.mx/nota_detalle.php?codigo=5767917&fecha=14/09/2025"}
+  ]
+}

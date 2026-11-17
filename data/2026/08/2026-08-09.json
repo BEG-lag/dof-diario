@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "date": "2026-08-09",
+  "source": "https://sidof.segob.gob.mx/dof/sidof/notas/09-08-2026",
+  "total_notes": 1,
+  "total_avisos": 0,
+  "editions": [{"edition": "matutina", "notes": 1, "avisos": 0, "diario_ids": [328985], "pdf_urls": ["https://sidof.segob.gob.mx/dof/sidof/documentos/pdf/328985"]}],
+  "notes": [
+    {"id": 5795817, "edition": "matutina", "order": 2, "section": "UNICA", "diario_id": 328985, "page": 2, "branch": "PODER EJECUTIVO", "branch_code": "PE", "agency": "PRESIDENCIA DE LA REPUBLICA", "title": "Decreto por el que se declara el segundo domingo de agosto de cada año como: \"Día Nacional de la Reforestación\".", "aviso": false, "has_doc": true, "has_pdf": true, "url": "https://dof.gob.mx/nota_detalle.php?codigo=5795817&fecha=09/08/2026"}
+  ]
+}

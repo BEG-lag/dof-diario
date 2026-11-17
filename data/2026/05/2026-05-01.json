@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "date": "2026-05-01",
+  "source": "https://sidof.segob.gob.mx/dof/sidof/notas/01-05-2026",
+  "total_notes": 4,
+  "total_avisos": 0,
+  "editions": [{"edition": "vespertina", "notes": 4, "avisos": 0, "diario_ids": [327045], "pdf_urls": ["https://sidof.segob.gob.mx/dof/sidof/documentos/pdf/327045"]}],
+  "notes": [
+    {"id": 5786537, "edition": "vespertina", "order": 2, "section": "UNICA", "diario_id": 327045, "page": 3, "branch": "PODER EJECUTIVO", "branch_code": "PE", "agency": "PRESIDENCIA DE LA REPUBLICA", "title": "Decreto por el que se reforman, adicionan y derogan diversas disposiciones de la Ley Federal del Trabajo, en materia de reducción de la jornada laboral.", "aviso": false, "has_doc": true, "has_pdf": true, "url": "https://dof.gob.mx/nota_detalle.php?codigo=5786537&fecha=01/05/2026"},
+    {"id": 5786538, "edition": "vespertina", "order": 3, "section": "UNICA", "diario_id": 327045, "page": 5, "branch": "PODER EJECUTIVO", "branch_code": "PE", "agency": "PRESIDENCIA DE LA REPUBLICA", "title": "Decreto por el que se reforman los artículos 40, fracción I, de la Ley Orgánica de la Administración Pública Federal; 15, fracciones IV y VI, de la Ley de Comercio Exterior y se adiciona el artículo 283 Quáter a la Ley Federal del Trabajo, en materia de certificación laboral para la agroexportación y protección de los ecosistemas forestales.", "aviso": false, "has_doc": true, "has_pdf": true, "url": "https://dof.gob.mx/nota_detalle.php?codigo=5786538&fecha=01/05/2026"},
+    {"id": 5786540, "edition": "vespertina", "order": 5, "section": "UNICA", "diario_id": 327045, "page": 6, "branch": "PODER EJECUTIVO", "branch_code": "PE", "agency": "SECRETARIA DE AGRICULTURA Y DESARROLLO RURAL", "title": "Acuerdo por el que se modifica el diverso por el que se dan a conocer las reglas de operación del Programa de Acopio para el Bienestar, para el ejercicio fiscal 2026, publicado el 31 de diciembre de 2025.", "aviso": false, "has_doc": true, "has_pdf": true, "url": "https://dof.gob.mx/nota_detalle.php?codigo=5786540&fecha=01/05/2026"},
+    {"id": 5786542, "edition": "vespertina", "order": 7, "section": "UNICA", "diario_id": 327045, "page": 20, "branch": "PODER EJECUTIVO", "branch_code": "PE", "agency": "SECRETARIA DE SALUD", "title": "Acuerdo por el que se establece el Comité Nacional de Partería.", "aviso": false, "has_doc": true, "has_pdf": true, "url": "https://dof.gob.mx/nota_detalle.php?codigo=5786542&fecha=01/05/2026"}
+  ]
+}

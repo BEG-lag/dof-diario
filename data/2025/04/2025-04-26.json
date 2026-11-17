@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "date": "2025-04-26",
+  "source": "https://sidof.segob.gob.mx/dof/sidof/notas/26-04-2025",
+  "total_notes": 1,
+  "total_avisos": 0,
+  "editions": [{"edition": "matutina", "notes": 1, "avisos": 0, "diario_ids": [320743], "pdf_urls": ["https://sidof.segob.gob.mx/dof/sidof/documentos/pdf/320743"]}],
+  "notes": [
+    {"id": 5755957, "edition": "matutina", "order": 2, "section": "UNICA", "diario_id": 320743, "page": 2, "branch": "PODER EJECUTIVO", "branch_code": "PE", "agency": "CONSEJO DE SALUBRIDAD GENERAL", "title": "Acuerdo por el que se emite el Compendio Nacional de Insumos para la Salud versión 2025.", "aviso": false, "has_doc": true, "has_pdf": true, "url": "https://dof.gob.mx/nota_detalle.php?codigo=5755957&fecha=26/04/2025"}
+  ]
+}

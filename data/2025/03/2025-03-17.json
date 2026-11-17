@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "date": "2025-03-17",
+  "source": "https://sidof.segob.gob.mx/dof/sidof/notas/17-03-2025",
+  "total_notes": 1,
+  "total_avisos": 0,
+  "editions": [{"edition": "vespertina", "notes": 1, "avisos": 0, "diario_ids": [320022], "pdf_urls": ["https://sidof.segob.gob.mx/dof/sidof/documentos/pdf/320022"]}],
+  "notes": [
+    {"id": 5752109, "edition": "vespertina", "order": 2, "section": "UNICA", "diario_id": 320022, "page": 2, "branch": "PODER EJECUTIVO", "branch_code": "PE", "agency": "PRESIDENCIA DE LA REPUBLICA", "title": "Decreto por el que se reforman y adicionan diversas disposiciones de los artículos 4o. y 27 de la Constitución Política de los Estados Unidos Mexicanos, en materia de conservación y protección de los maíces nativos.", "aviso": false, "has_doc": true, "has_pdf": true, "url": "https://dof.gob.mx/nota_detalle.php?codigo=5752109&fecha=17/03/2025"}
+  ]
+}

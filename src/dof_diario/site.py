@@ -25,8 +25,20 @@ def issuer(note: dict[str, Any]) -> str:
     return note.get("agency") or note.get("branch") or "SIN DEPENDENCIA"
 
 
+def _dumps(data: Any) -> str:
+    """Compact JSON, but with one row per line for ``notes`` so git can delta it."""
+    if isinstance(data, dict) and isinstance(data.get("notes"), list):
+        head = {k: v for k, v in data.items() if k != "notes"}
+        rows = ",\n".join(
+            json.dumps(r, ensure_ascii=False, separators=(",", ":")) for r in data["notes"]
+        )
+        prefix = json.dumps(head, ensure_ascii=False, separators=(",", ":"))[:-1]
+        return f'{prefix},"notes":[\n{rows}\n]}}\n'
+    return json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n"
+
+
 def _write(path: Path, data: Any) -> bool:
-    text = json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n"
+    text = _dumps(data)
     if path.exists() and path.read_text(encoding="utf-8") == text:
         return False
     path.parent.mkdir(parents=True, exist_ok=True)

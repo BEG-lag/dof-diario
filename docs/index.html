@@ -18,6 +18,67 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="preload" href="data/summary.json" as="fetch" crossorigin>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Dataset",
+ "name": "Sumario diario del Diario Oficial de la Federación (DOF) desde 2025",
+ "alternateName": "dof-diario",
+ "description": "Archivo abierto del sumario del Diario Oficial de la Federación de México desde el 1 de enero de 2025: un registro por día con cada nota publicada (título, dependencia, edición, página y liga oficial), tomado de la API pública SIDOF y actualizado dos veces al día con GitHub Actions. Incluye índices anuales para búsqueda y estadísticas por mes y dependencia. Réplica no oficial; solo la publicación oficial del DOF tiene validez.",
+ "url": "https://beg-lag.github.io/dof-diario/",
+ "sameAs": "https://github.com/BEG-lag/dof-diario",
+ "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "isAccessibleForFree": true,
+ "creator": {
+  "@type": "Person",
+  "name": "Benjamín Esponda García",
+  "url": "https://pivotek.mx/",
+  "sameAs": [
+   "https://github.com/BEG-lag"
+  ]
+ },
+ "inLanguage": "es",
+ "temporalCoverage": "2025-01-01/..",
+ "spatialCoverage": {
+  "@type": "Place",
+  "name": "México"
+ },
+ "keywords": [
+  "México",
+  "Diario Oficial de la Federación",
+  "DOF",
+  "gobierno",
+  "regulación",
+  "datos abiertos"
+ ],
+ "distribution": [
+  {
+   "@type": "DataDownload",
+   "name": "Índice 2025 (JSON)",
+   "encodingFormat": "application/json",
+   "contentUrl": "https://beg-lag.github.io/dof-diario/data/index-2025.json"
+  },
+  {
+   "@type": "DataDownload",
+   "name": "Índice 2026 (JSON)",
+   "encodingFormat": "application/json",
+   "contentUrl": "https://beg-lag.github.io/dof-diario/data/index-2026.json"
+  },
+  {
+   "@type": "DataDownload",
+   "name": "Resumen estadístico (JSON)",
+   "encodingFormat": "application/json",
+   "contentUrl": "https://beg-lag.github.io/dof-diario/data/summary.json"
+  },
+  {
+   "@type": "DataDownload",
+   "name": "Archivo completo, un JSON por día (ZIP)",
+   "encodingFormat": "application/zip",
+   "contentUrl": "https://github.com/BEG-lag/dof-diario/archive/refs/heads/main.zip"
+  }
+ ]
+}
+</script>
 </head>
 <body>
   <header class="top">
